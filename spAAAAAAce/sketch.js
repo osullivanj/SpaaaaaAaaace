@@ -1,32 +1,135 @@
-function setup() {
-  // put setup code here
+var mercury;
+
+function preload () {
+  mercury = loadImage("mercury.jpg"); 
+}
+
+function setup () {
+  createCanvas (innerWidth, innerHeight, WEBGL);
+  angleMode(DEGREES);
 }
 
 function draw() {
-  // put drawing code here
-}
+  noStroke();
+  background(220);
+  // background(0);
+  push();
+  // rotateY(frameCount / 2);
+  translate(0, 0, 0);
 
-class Planet {
-	constructor(x, y, r, c1, c2, c3) {
-		this.x = x;
-		this.y = y;
-		this.r = r;
-		this.c1 = c1;
-		this.c2 = c2;
-		this.c3 = c3;
-	}
-	show() {
-		fill(this.c1, this.c2, this.c3);
-		ellipse(this.x, this.y, this.r);
-	}
+  // Sun
+  fill("yellow");
+  sphere(25);
+
+  // Mercury
+  
+  push();
+  rotateY(frameCount / 2);
+  translate(40, 0, 0);
+  rotateY(frameCount * 4);
+  // rotateX(frameCount * 6);
+  fill(102, 0, 204);
+  texture(mercury);
+  sphere(10);
+  translate(15, 0, 0);
+  fill(102, 0, 204);
+  sphere(2);
+  pop();
+
+  // Venus
+  push();
+  rotateY(frameCount / 1);
+  translate(33, 0, 0);
+  rotateY(frameCount * 4);
+  rotateX(frameCount * 6);
+  fill(255, 153, 51);
+  sphere(3);
+  translate(22, 0, 0);
+  fill(255, 153, 51);
+  sphere(2);
+  pop();
+
+  // Earth
+  translate(35, 0, 0);
+  push();
+  rotateY(frameCount * 4);
+  rotateX(frameCount * 6);
+  fill("blue");
+  sphere(5);
+  translate(18, 0, 0);
+  fill("blue");
+  sphere(2);
+  pop();
+
+  // Mars
+  translate(40, 0, 0);
+  push();
+  rotateY(frameCount * 4)
+  rotateX(frameCount * 6)
+  fill("red");
+  sphere(7);
+  translate(20, 0, 0);
+  fill("red")
+  sphere(3)
+  pop();
+
+  // Jupiter
+  translate(43, 0, 0);
+  push();
+  rotateY(frameCount * 4)
+  rotateX(frameCount * 6)
+  fill(51, 25, 0)
+  sphere(7);
+  translate(22, 0, 0);
+  fill(51, 25, 0)
+  sphere(3)
+  pop();
+
+  // Saturn
+  translate(45, 0, 0);
+  push();
+  rotateY(frameCount * 4)
+  rotateX(frameCount * 6)
+  fill(153, 153, 0)
+  sphere(10);
+  translate(23, 0, 0);
+  fill(153, 153, 0)
+  sphere(5);
+  pop();
+
+  // Uranus
+  translate(50, 0, 0);
+  push();
+  rotateY(frameCount * 4)
+  rotateX(frameCount * 6)
+  fill(0, 255, 255)
+  sphere(12);
+  translate(25, 0, 0);
+  fill(0, 255, 255)
+  sphere(6);
+  pop();
+
+  // Neptune
+  translate(55, 0, 0);
+  push();
+  rotateY(frameCount * 4)
+  rotateX(frameCount * 6)
+  fill(102, 102, 255)
+  sphere(12);
+  translate(28, 0, 0);
+  fill(102, 102, 255)
+  sphere(6);
+  pop();
+
+  // Pluto
+  translate(100, 0, 0);
+  push();
+  rotateY(frameCount * 4)
+  rotateX(frameCount * 4)
+  fill(160, 160, 160)
+  sphere(4);
+  translate(28, 0, 0);
+  fill(160, 160, 160)
+  sphere(2);
+  pop();
 }
-let planets = [
-	new Planet(70, 50, 20, 150, 150, 150),
-	new Planet(-110, -60, 30, 250, 80, 0),
-	new Planet(0, -180, 35, 0, 160, 255),
-	new Planet(30, 220, 25, 255, 130, 0),
-	new Planet(-180, 210, 45, 255, 170, 0),
-	new Planet(340, -30, 50, 180, 120, 100),
-	new Planet(220, 350, 35, 0, 200, 255),
-	new Planet(-340, -320, 45, 0, 50, 255)
-];
