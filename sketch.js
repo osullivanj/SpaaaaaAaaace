@@ -1,3 +1,4 @@
+var sun;
 var mercury;
 var venus;
 var earth;
@@ -9,6 +10,7 @@ var neptune;
 var pluto;
 
 function preload () {
+  sun = loadImage("sun.jpg");
   mercury = loadImage("mercury.jpg");
   venus = loadImage("venus.jpg");
   earth = loadImage("earth.jpg");
@@ -35,6 +37,7 @@ function draw() {
 
   // Sun
   fill("yellow");
+  texture(sun);
   sphere(25);
 
   // Mercury
