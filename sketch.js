@@ -15,7 +15,6 @@ var pluto;
 
 function preload () {
   markImage = loadImage("mark.png");
-  // sunImage = loadImage("sun.jpg");
   mercury = loadImage("mercury.jpg");
   venus = loadImage("venus.jpg");
   earth = loadImage("earth.jpg");
