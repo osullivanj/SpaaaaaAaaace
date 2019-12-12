@@ -30,7 +30,7 @@ function setup () {
 function draw() {
   noStroke();
   background(220);
-  // background(0);
+  background(0);
   push();
   rotateY(frameCount / 2);
   translate(0, 0, 0);
@@ -48,10 +48,10 @@ function draw() {
   // rotateX(frameCount * 6);
   fill(102, 0, 204);
   texture(mercury);
-  sphere(10);
+  sphere(2);
   translate(15, 0, 0);
   fill(102, 0, 204);
-  sphere(2);
+  sphere(1);
   pop();
 
   // Venus
@@ -69,9 +69,9 @@ function draw() {
   pop();
 
   // Earth
-  translate(35, 0, 0);
   push();
   rotateY(frameCount * 4);
+  translate(35, 0, 0);
   // rotateX(frameCount * 6);
   fill("blue");
   texture(earth);
