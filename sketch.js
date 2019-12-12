@@ -1,5 +1,7 @@
 /* globals loadImage createCanvas innerWidth innerHeight WEBGL angleMode DEGREES noStroke background push rotateY frameCount translate fill texture sphere pop */
 
+var markImage;
+// var sunImage;
 var sun;
 var mercury;
 var venus;
@@ -12,7 +14,8 @@ var neptune;
 var pluto;
 
 function preload () {
-  sun = loadImage("mark.png");
+  markImage = loadImage("mark.png");
+  // sunImage = loadImage("sun.jpg");
   mercury = loadImage("mercury.jpg");
   venus = loadImage("venus.jpg");
   earth = loadImage("earth.jpg");
@@ -22,12 +25,16 @@ function preload () {
   uranus = loadImage("uranus.jpg");
   neptune = loadImage("neptune.jpg");
   pluto = loadImage("pluto.jpg");
-  imageMode(CENTER);
 }
 
 function setup () {
   createCanvas(innerWidth, innerHeight, WEBGL);
+  imageMode(CENTER);
   angleMode(DEGREES);
+
+  // adjust the sun's texture position here
+  sun = createGraphics(256, 256);
+  sun.image(markImage, 20, 70, 80, 80);
 }
 
 function drawPlanet (orbitSpeed, orbitDistance, planetTexture, planetSize, moonDistance, moonColor, moonSize, rotationSpeed) {
@@ -50,6 +57,7 @@ function draw() {
 
   // Sun
   texture(sun);
+  rotateY(-90);
   sphere(25);
 
   // Mercury
