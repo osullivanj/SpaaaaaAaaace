@@ -1,3 +1,5 @@
+/* globals loadImage createCanvas innerWidth innerHeight WEBGL angleMode DEGREES noStroke background push rotateY frameCount translate fill texture sphere pop */
+
 var sun;
 var mercury;
 var venus;
