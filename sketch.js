@@ -1,7 +1,6 @@
 /* globals loadImage createCanvas innerWidth innerHeight WEBGL angleMode DEGREES noStroke background push rotateY frameCount translate fill texture sphere pop */
 
 var markImage;
-// var sunImage;
 var sun;
 var mercury;
 var venus;
@@ -15,6 +14,7 @@ var pluto;
 
 function preload () {
   markImage = loadImage("mark.png");
+  sun = loadImage("sun.jpg");
   mercury = loadImage("mercury.jpg");
   venus = loadImage("venus.jpg");
   earth = loadImage("earth.jpg");
@@ -30,10 +30,8 @@ function setup () {
   createCanvas(innerWidth, innerHeight, WEBGL);
   imageMode(CENTER);
   angleMode(DEGREES);
-
-  // adjust the sun's texture position here
-  sun = createGraphics(256, 256);
-  sun.image(markImage, 20, 70, 80, 80);
+  markPic = createGraphics(256, 256);
+  markPic.image(markImage, 20, 70, 80, 80);
 }
 
 function drawPlanet (orbitSpeed, orbitDistance, planetTexture, planetSize, moonDistance, moonColor, moonSize, rotationSpeed) {
@@ -55,34 +53,24 @@ function draw() {
   translate(0, 0, 0);
 
   // Sun
+  fill(255, 255, 153);
   texture(sun);
+  if(keyIsPressed) {
+	  if(key === " ") {
+		  texture(markPic);
+	  }
+  }
   rotateY(-90);
   sphere(25);
 
-  // Mercury
+  // Planets
   drawPlanet(2, 40, mercury, 2, 15, [102, 0, 204], 1, 1);
-
-  // Venus
   drawPlanet(4, 33, venus, 3, 22, [255, 153, 51], 2, 1);
-
-  // Earth
-  drawPlanet(1, 35, earth, 5, 18, "blue", 2, 10);
-
-  // Mars
-  drawPlanet(6, 40, mars, 7, 20, "red", 3, 1);
-
-  // Jupiter
+  drawPlanet(1, 35, earth, 5, 18, [0, 128, 255], 2, 10);
+  drawPlanet(6, 40, mars, 7, 20, [255, 0, 0], 3, 1);
   drawPlanet(1, 143, jupiter, 7, 22, [51, 25, 0], 3, 5);
-
-  // Saturn
   drawPlanet(0.8, 145, saturn, 10, 23, [153, 153, 0], 5, 2);
-
-  // Uranus
   drawPlanet(0.6, 150, uranus, 12, 25, [0, 255, 255], 6, 1.5);
-
-  // Neptune
   drawPlanet(0.5, 160, neptune, 12, 28, [102, 102, 255], 6, 2);
-
-  // Pluto
   drawPlanet(10, 180, pluto, 4, 28, [160, 160, 160], 2);
 }
