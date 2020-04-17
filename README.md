@@ -1,5 +1,7 @@
 # SpaaaaaAaaace
 
+https://osullivanj.github.io/SpaaaaaAaaace/
+
 Project SpaaaaaaaAaace is brought to you by Jamison O'Sullivan, Hannah Paquette, and Nathaniel Shortall!
 
 Project SpaaaAaaaaaace is a 3D model of the solar system, with rotating planets and moons. Each orbit rotates at its own speed, and each planet is textured realistically to look like the actual planets of our solar system. One little thing we added in was the sun texture changing when the spaAaaacebar key is pressed. When the key is not being pressed, a texture of the sun is displayed, but when the spaaaAaacebar key *is* pressed, the sun texture is replaced with a picture of the one and only Mark Sherman.
