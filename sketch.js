@@ -1,4 +1,4 @@
-/* globals loadImage createCanvas innerWidth innerHeight WEBGL angleMode DEGREES noStroke background push rotateY frameCount translate fill texture sphere pop */
+/* globals imageMode CENTER loadImage createCanvas innerWidth innerHeight WEBGL angleMode DEGREES noStroke background push rotateY frameCount translate fill texture sphere pop key keyIsPressed createGraphics */
 
 var markImage;
 var sun;
@@ -11,19 +11,20 @@ var saturn;
 var uranus;
 var neptune;
 var pluto;
+var markPic;
 
 function preload () {
-  markImage = loadImage("mark.png");
-  sun = loadImage("sun.jpg");
-  mercury = loadImage("mercury.jpg");
-  venus = loadImage("venus.jpg");
-  earth = loadImage("earth.jpg");
-  mars = loadImage("mars.jpg");
-  jupiter = loadImage("jupiter.jpg");
-  saturn = loadImage("saturn.jpg");
-  uranus = loadImage("uranus.jpg");
-  neptune = loadImage("neptune.jpg");
-  pluto = loadImage("pluto.jpg");
+  markImage = loadImage('mark.png');
+  sun = loadImage('sun.jpg');
+  mercury = loadImage('mercury.jpg');
+  venus = loadImage('venus.jpg');
+  earth = loadImage('earth.jpg');
+  mars = loadImage('mars.jpg');
+  jupiter = loadImage('jupiter.jpg');
+  saturn = loadImage('saturn.jpg');
+  uranus = loadImage('uranus.jpg');
+  neptune = loadImage('neptune.jpg');
+  pluto = loadImage('pluto.jpg');
 }
 
 function setup () {
@@ -47,18 +48,18 @@ function drawPlanet (orbitSpeed, orbitDistance, planetTexture, planetSize, moonD
   pop();
 }
 
-function draw() {
+function draw () {
   noStroke();
   background(0);
-  translate(0, 0, 0);
 
   // Sun
   fill(255, 255, 153);
-  texture(sun);
-  if(keyIsPressed) {
-	  if(key === " ") {
-		  texture(markPic);
-	  }
+  if (keyIsPressed) {
+    if (key === ' ') {
+      texture(markPic);
+    }
+  } else {
+    texture(sun);
   }
   rotateY(-90);
   sphere(25);
